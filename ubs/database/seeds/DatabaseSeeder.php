@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AddressSeed::class);
         $this->call(UbsSeed::class);
-		//$this->call(PersonSeed::class);
-        //$this->call(DoctorSeed::class);
-        //$this->call(LoginSeed::class);
-        //$this->call(PacientSeed::class);
+		$this->call(PersonSeed::class);
+        $this->call(DoctorSeed::class);
+        $this->call(LoginSeed::class);
+        $this->call(PacientSeed::class);
         $this->call(AuditionSeed::class);
         $this->call(ConsultationSeed::class);
         

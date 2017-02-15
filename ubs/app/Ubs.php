@@ -8,7 +8,7 @@ class Ubs extends Model
 {
 	protected $table = 'ubses';
 	
-    protected $fillable = ['id', 'name', 'sync'];
+    protected $fillable = ['id', 'name', 'address_id', 'sync'];
 
     protected $dates = ['deleted_at'];
 

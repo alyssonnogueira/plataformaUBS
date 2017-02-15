@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     protected $table = 'persons';
-    protected $fillable = ['name', 'cpf', 'birth', 'rg', 'phone', 'email', 'civil_status', 'sync', 'ubs_id'];
+    protected $fillable = ['name', 'cpf', 'birth', 'rg', 'phone', 'email', 'civil_status', 'sync','address_id', 'ubs_id'];
 
     protected $dates = ['deleted_at'];
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Login extends Model
 {
-    protected $fillable = ['email', 'password', 'sync'];
+    protected $fillable = ['person_doctor_login','email', 'password', 'sync'];
 
     protected $hidden = ['password'];
 

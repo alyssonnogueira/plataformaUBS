@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    protected $fillable = ['country', 'state', 'city', 'neighboorhood', 'zip', 'street', 'number', 'complement', 'sync'];
+    protected $fillable = ['id', 'country', 'state', 'city', 'neighboorhood', 'zip', 'street', 'number', 'complement', 'sync', 'updated_at', 'created_at'];
 
     protected $dates = ['deleted_at'];
 

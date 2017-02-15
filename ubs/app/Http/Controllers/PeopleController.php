@@ -8,6 +8,16 @@ use App\Http\Controllers\Controller;
 
 class PeopleController extends Controller
 {
+	private $db;
+	
+	public function __construct()
+    {
+        #$connect = mysqli_connect('127.0.0.1','homestead','secret');
+		#$db = mysqli_select_db($connect, 'ubs');
+        $this->db = DB::connection('mysql');
+    
+    }
+    
     public function index()
     {
         $person = Person::all();

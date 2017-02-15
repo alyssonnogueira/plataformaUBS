@@ -27,10 +27,10 @@ class AuditionsController extends Controller
         return response()->json($auditions);
     }
 
-    public function show($id)
+    public function show($id,$seq)
     {
         #$audition = Audition::find($id);
-        $query_select = "SELECT * FROM auditions WHERE id = '$id'";
+        $query_select = "SELECT * FROM auditions WHERE person_pacient = '$id' AND seqAudition = '$seq'";
 		$audition = $this->db->select($query_select);
         
         if(!$audition) {
@@ -54,11 +54,11 @@ class AuditionsController extends Controller
         return response()->json($audition, 201);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $seq)
     {
         #$audition = Audition::find($id);
 
-        $query_select = "SELECT * FROM auditions WHERE id = '$id'";
+        $query_select = "SELECT * FROM auditions WHERE person_pacient = '$id' AND seqAudition = '$seq'";
 		$audition_verify = $this->db->select($query_select);
         
         if(!$audition_verify) {
@@ -78,9 +78,9 @@ class AuditionsController extends Controller
         return response()->json($audition);
     }
 
-     public function destroy($id)
+     public function destroy($id,$seq)
     {
-        $query_select = "SELECT * FROM auditions WHERE id = '$id'";
+        $query_select = "SELECT * FROM auditions WHERE person_pacient = '$id' AND seqAudition = '$seq'";
 		$audition = $this->db->select($query_select);
         
         if(!$audition) {

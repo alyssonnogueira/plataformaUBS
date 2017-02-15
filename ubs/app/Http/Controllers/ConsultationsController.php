@@ -27,10 +27,10 @@ class ConsultationsController extends Controller
         return response()->json($consultations);
     }
 
-    public function show($id)
+    public function show($id,$seq)
     {
         #$consultation = Consultation::find($id);
-        $query_select = "SELECT * FROM consultations WHERE id = '$id'";
+        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
 		$consultation = $this->db->select($query_select);
         
         if(!$consultation) {
@@ -54,7 +54,7 @@ class ConsultationsController extends Controller
         return response()->json($consultation, 201);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $seq)
     {
         $consultation = Consultation::find($id);
 
@@ -65,7 +65,7 @@ class ConsultationsController extends Controller
         }
 
         $consultation->fill($request->all());
-        $query_select = "SELECT * FROM consultations WHERE id = '$id'";
+        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
 		$address_verify = $this->db->select($query_select);
         
         if(!$address_verify) {
@@ -85,11 +85,11 @@ class ConsultationsController extends Controller
         return response()->json($consultation);
     }
 
-     public function destroy($id)
+     public function destroy($id, $seq)
     {
         #$consultation = Consultation::find($id);
 
-        $query_select = "SELECT * FROM consultations WHERE id = '$id'";
+        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
 		$consultation = $this->db->select($query_select);
         
         if(!$consultation) {
@@ -98,7 +98,7 @@ class ConsultationsController extends Controller
             ], 404);
         }
 
-        $query_delete = "DELETE FROM consultations WHERE id='$id'";
+        $query_delete = "DELETE FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
         if ($this->db->delete($query_delete)){
         	return 1; #Ok
         } else {

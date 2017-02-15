@@ -60,17 +60,19 @@ class AddressesController extends Controller
     public function update(Request $request, $id)
     {
         #$address = Address::find($id);
-		/*$query_select = "SELECT * FROM addresses WHERE id = '$id'";
-		$address = $this->db->select($query_select);
+		$query_select = "SELECT * FROM addresses WHERE id = '$id'";
+		$address_verify = $this->db->select($query_select);
         
-        if(!$address) {
+        if(!$address_verify) {
             return response()->json([
                 'message'   => 'Record not found',
             ], 404);
-        }*/	
+        }
+
 		$address = new Address();
         $address->fill($request->all());
-        $query_update = "UPDATE addresses SET country='$address->country', state='$address->state', city='$address->city', neighboorhood='$address->neighboorhood', zip='$address->zip', street='$address->street, number='$address->number', complement='$address->complement', sync='$address->sync' WHERE id='$id'";
+
+        $query_update = "UPDATE addresses SET country='$address->country', state='$address->state', city='$address->city', neighboorhood='$address->neighboorhood', zip='$address->zip', street='$address->street', number='$address->number', complement='$address->complement', sync='$address->sync' WHERE id='$id'";
         $this->db->update($query_update);
         #$address->save();
 

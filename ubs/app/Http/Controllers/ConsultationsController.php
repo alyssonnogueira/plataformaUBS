@@ -30,7 +30,7 @@ class ConsultationsController extends Controller
     public function show($id,$seq)
     {
         #$consultation = Consultation::find($id);
-        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
+        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqConsultation = '$seq'";
 		$consultation = $this->db->select($query_select);
         
         if(!$consultation) {
@@ -65,7 +65,7 @@ class ConsultationsController extends Controller
         }
 
         $consultation->fill($request->all());
-        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
+        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqConsultation = '$seq'";
 		$address_verify = $this->db->select($query_select);
         
         if(!$address_verify) {
@@ -89,7 +89,7 @@ class ConsultationsController extends Controller
     {
         #$consultation = Consultation::find($id);
 
-        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
+        $query_select = "SELECT * FROM consultations WHERE person_pacient = '$id' AND seqConsultation = '$seq'";
 		$consultation = $this->db->select($query_select);
         
         if(!$consultation) {
@@ -98,7 +98,7 @@ class ConsultationsController extends Controller
             ], 404);
         }
 
-        $query_delete = "DELETE FROM consultations WHERE person_pacient = '$id' AND seqAudition = '$seq'";
+        $query_delete = "DELETE FROM consultations WHERE person_pacient = '$id' AND seqConsultation = '$seq'";
         if ($this->db->delete($query_delete)){
         	return 1; #Ok
         } else {

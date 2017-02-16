@@ -89,7 +89,7 @@ class AuditionsController extends Controller
             ], 404);
         }
 
-        $query_delete = "DELETE FROM auditions WHERE id='$id'";
+        $query_delete = "DELETE FROM auditions WHERE person_pacient = '$id' AND seqAudition = '$seq'";
         if ($this->db->delete($query_delete)){
         	return response()->json($audition, 201); #Ok
         } else {

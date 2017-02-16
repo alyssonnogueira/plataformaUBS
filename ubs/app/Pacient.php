@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pacient extends Model
 {
-    protected $fillable = ['person_pacient','sus', 'height', 'weight', 'skinColor', 'locomotionProblem', 'bedridden', 'osteoporosis', 'depression', 'insanity', 'needCare', 'armPerimeter', 'dm', 'has', 'bookSenior', 'oralHealthRisk', 'logo', 'password'];
+    protected $fillable = ['person_pacient','sus', 'height', 'weight', 'skinColor', 'locomotionProblem', 'bedridden', 'osteoporosis', 'depression', 'insanity', 'needCare', 'armPerimeter', 'dm', 'has', 'bookSenior', 'oralHealthRisk'];
 
     protected $dates = ['deleted_at'];
 

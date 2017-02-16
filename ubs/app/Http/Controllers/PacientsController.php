@@ -45,8 +45,8 @@ class PacientsController extends Controller
     {
         $pacient = new Pacient();
         $pacient->fill($request->all());
-        $query_insert = "INSERT INTO pacients (person_pacient,sus, height, weight, skinColor, locomotionProblem, bedridden, osteoporosis, depression, insanity, needCare, armPerimeter, dm, has, bookSenior, oralHealthRisk, person_pacient, logo, password)
-        values('$pacient->person_pacient,'$pacient->sus', '$pacient->height', '$pacient->weight', '$pacient->skinColor', '$pacient->locomotionProblem', '$pacient->bedridden', '$pacient->osteoporosis', '$pacient->depression', '$pacient->insanity', '$pacient->needCare', '$pacient->armPerimeter', '$pacient->dm', '$pacient->has', '$pacient->bookSenior', '$pacient->oralHealthRisk','$pacient->logo', '$pacient->password')";
+        $query_insert = "INSERT INTO pacients (person_pacient,sus, height, weight, skinColor, locomotionProblem, bedridden, osteoporosis, depression, insanity, needCare, armPerimeter, dm, has, bookSenior, oralHealthRisk)
+        values('$pacient->person_pacient','$pacient->sus', '$pacient->height', '$pacient->weight', '$pacient->skinColor', '$pacient->locomotionProblem', '$pacient->bedridden', '$pacient->osteoporosis', '$pacient->depression', '$pacient->insanity', '$pacient->needCare', '$pacient->armPerimeter', '$pacient->dm', '$pacient->has', '$pacient->bookSenior', '$pacient->oralHealthRisk')";
 
         $this->db->insert($query_insert);
         #$pacient->save();
@@ -70,7 +70,7 @@ class PacientsController extends Controller
 		$pacient = new Pacients();
         $pacient->fill($request->all());
 
-        $query_update = "UPDATE pacients SET person_pacient='$pacient->person_pacient',sus='$pacient->sus', height='$pacient->height', weight='$pacient->weight', skinColor='$pacient->skinColor', locomotionProblem='$pacient->locomotionProblem', bedridden='$pacient->bedridden', osteoporosis='$pacient->osteoporosis', depression='$pacient->depression', insanity='$pacient->insanity', needCare='$pacient->needCare', armPerimeter='$pacient->armPerimeter', dm='$pacient->dm', has='$pacient->has', bookSenior='$pacient->bookSenior', oralHealthRisk='$pacient->oralHealthRisk',logo='$pacient->logo', password='$pacient->password' WHERE id='$id'";
+        $query_update = "UPDATE pacients SET person_pacient='$pacient->person_pacient',sus='$pacient->sus', height='$pacient->height', weight='$pacient->weight', skinColor='$pacient->skinColor', locomotionProblem='$pacient->locomotionProblem', bedridden='$pacient->bedridden', osteoporosis='$pacient->osteoporosis', depression='$pacient->depression', insanity='$pacient->insanity', needCare='$pacient->needCare', armPerimeter='$pacient->armPerimeter', dm='$pacient->dm', has='$pacient->has', bookSenior='$pacient->bookSenior', oralHealthRisk='$pacient->oralHealthRisk' WHERE id='$id'";
         $this->db->update($query_update);
         #$pacient->save();
 

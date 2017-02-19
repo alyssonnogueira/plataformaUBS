@@ -12,7 +12,7 @@ class LoginSeed extends Seeder
     public function run()
     {
         App\Login::create([
-        	'person_doctor_login' => 999,
+        	'doctor_login' => 999,
         	'email' => 'doctor@ubs.com',
         	'password' => 'mamao',
         	'sync' => true

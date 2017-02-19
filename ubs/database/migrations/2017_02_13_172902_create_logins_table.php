@@ -14,16 +14,14 @@ class CreateLoginsTable extends Migration
     public function up()
     {
         Schema::create('logins', function (Blueprint $table) {
-            $table->integer('person_doctor_login')->unsigned();
-            $table->foreign('person_doctor_login')
+            $table->integer('doctor_login')->unsigned();
+            $table->foreign('doctor_login')
                           ->references('id')
                           ->on('people')
-                          ->onDelete('cascade')
                           ->primary();
-            $table->string('email')->unique();
+            $table->string('email', 100);
             $table->string('password');
             $table->boolean('sync');
-            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

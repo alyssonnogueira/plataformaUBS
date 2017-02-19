@@ -30,7 +30,7 @@ class LoginsController extends Controller
     public function show($id)
     {
         #$login = Login::find($id);
-        $query_select = "SELECT * FROM logins WHERE id = '$id'";
+        $query_select = "SELECT * FROM logins WHERE doctor_login = '$id'";
 		$login = $this->db->select($query_select);
         
         if(!$login) {
@@ -46,10 +46,10 @@ class LoginsController extends Controller
     {
         $login = new Login();
         $login->fill($request->all());
-        $query_insert = "INSERT INTO logins ('person_doctor_login', 'email', 'password', 'sync')
-        values('$login->person_doctor_login', '$login->email', '$login->password', '$login->sync')";
+        $query_insert = "INSERT INTO logins (doctor_login, email, password, sync)
+        values('$login->doctor_login', '$login->email', '$login->password', '$login->sync')";
         $this->db->insert($query_insert);
-        #$login->save();
+        //$login->save();
 
         return response()->json($login, 201);
     }
@@ -57,7 +57,7 @@ class LoginsController extends Controller
     public function update(Request $request, $id)
     {
         #$login = Login::find($id);
-        $query_select = "SELECT * FROM logins WHERE id = '$id'";
+        $query_select = "SELECT * FROM logins WHERE doctor_login = '$id'";
 		$login_verify = $this->db->select($query_select);
         
         if(!$login_verify) {
@@ -69,7 +69,7 @@ class LoginsController extends Controller
 		$login = new Login();
         $login->fill($request->all());
 
-        $query_update = "UPDATE logins SET person_doctor_login='$login->person_doctor_login', email='$login->email', password='$login->password', sync='$login->sync' WHERE id='$id'";
+        $query_update = "UPDATE logins SET email='$login->email', password='$login->password', sync='$login->sync' WHERE doctor_login='$id'";
         $this->db->update($query_update);
         #$login->save();
 
@@ -79,7 +79,7 @@ class LoginsController extends Controller
      public function destroy($id)
     {
         #$login = Login::find($id);
-        $query_select = "SELECT * FROM logins WHERE id = '$id'";
+        $query_select = "SELECT * FROM logins WHERE doctor_login = '$id'";
 		$login = $this->db->select($query_select);
         
         if(!$login) {
@@ -88,7 +88,7 @@ class LoginsController extends Controller
             ], 404);
         }
 
-        $query_delete = "DELETE FROM logins WHERE id='$id'";
+        $query_delete = "DELETE FROM logins WHERE doctor_login='$id'";
         if ($this->db->delete($query_delete)){
         	return 201; #Ok
         } else {

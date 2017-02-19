@@ -19,7 +19,7 @@ class CreatePacientsTable extends Migration
                   ->primary();
             $table->foreign('person_pacient')
                   ->references('id')
-                  ->on('persons');
+                  ->on('people');
             $table->string('sus', 45);
             $table->float('height');
             $table->float('weight');

@@ -17,10 +17,12 @@ class CreateDoctorsTable extends Migration
             $table->integer('person_doctor')->unsigned();
             $table->foreign('person_doctor')
                 ->references('id')
-                ->on('persons')
+                ->on('people')
                 ->primary();
             $table->boolean('boss');
-            $table->timestamps();
+            $table->string('crm');
+            $table->date('created_at');
+            $table->date('updated_at');
             $table->softDeletes();
         });
     }

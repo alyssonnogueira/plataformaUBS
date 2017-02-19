@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
-    protected $fillable = ['person_doctor', 'boss'];
+    protected $fillable = ['person_doctor', 'boss', 'crm', 'created_at', 'updated_at'];
 
     protected $dates = ['deleted_at'];
 

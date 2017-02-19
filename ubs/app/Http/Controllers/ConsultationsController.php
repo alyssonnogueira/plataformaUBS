@@ -46,8 +46,8 @@ class ConsultationsController extends Controller
     {
         $consultation = new Consultation();
         $consultation->fill($request->all());
-        $query_insert = "INSERT INTO consultations (person_doctor, person_pacient, seqConsultation, blood_presure,weight, observations, physical_exam, foot_exam, create_date, update_date, sync)
-        values('$consultation->person_doctor', '$consultation->person_pacient', '$consultation->seqConsultation', '$consultation->blood_presure','$consultation->weight', '$consultation->observations', '$consultation->physical_exam', '$consultation->foot_exam', '$consultation->create_date', '$consultation->update_date', '$consultation->sync')";
+        $query_insert = "INSERT INTO consultations (person_doctor, person_pacient, seqConsultation, blood_presure,weight, observations, physical_exam, foot_exam, created_date, updated_date, sync)
+        values('$consultation->person_doctor', '$consultation->person_pacient', '$consultation->seqConsultation', '$consultation->blood_presure','$consultation->weight', '$consultation->observations', '$consultation->physical_exam', '$consultation->foot_exam', '$consultation->created_date', '$consultation->updated_date', '$consultation->sync')";
         $this->db->insert($query_insert);
         #$consultation->save();
 
@@ -77,7 +77,7 @@ class ConsultationsController extends Controller
 		$consultation = new Address();
         $consultation->fill($request->all());
 
-        $query_update = "UPDATE consultations SET person_doctor='$consultation->person_doctor', person_pacient='$consultation->person_pacient', seqConsultation='$consultation->seqConsultation', blood_presure='$consultation->blood_presure',weight='weight$consultation->weight', observations='$consultation->observations', physical_exam='$consultation->physical_exam', foot_exam='$consultation->foot_exam', create_date='$consultation->create_date', update_date='$consultation->update_date', sync='$consultation->sync' WHERE id='$id'";
+        $query_update = "UPDATE consultations SET person_doctor='$consultation->person_doctor', person_pacient='$consultation->person_pacient', seqConsultation='$consultation->seqConsultation', blood_presure='$consultation->blood_presure',weight='weight$consultation->weight', observations='$consultation->observations', physical_exam='$consultation->physical_exam', foot_exam='$consultation->foot_exam', updated_date='$consultation->updated_date', sync='$consultation->sync' WHERE id='$id'";
         $this->db->update($query_update);
 
         #$consultation->save();

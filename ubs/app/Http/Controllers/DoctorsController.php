@@ -46,8 +46,8 @@ class DoctorsController extends Controller
     {
         $doctor = new Doctor();
         $doctor->fill($request->all());
-        $query_insert = "INSERT INTO doctors (person_doctor, boss)
-        values('$doctor->person_doctor', '$doctor->boss')";
+        $query_insert = "INSERT INTO doctors (person_doctor, boss, crm, created_at, updated_at)
+        values('$doctor->person_doctor', '$doctor->boss','$doctor->crm', '$doctor->created_at', '$doctor->updated_at')";
         $this->db->insert($query_insert);
         #$doctor->save();
 
@@ -70,7 +70,7 @@ class DoctorsController extends Controller
 		$doctor = new Doctor();
         $doctor->fill($request->all());
 
-        $query_update = "UPDATE doctors SET '$doctor->person_doctor', '$doctor->boss' WHERE id='$id'";
+        $query_update = "UPDATE doctors SET '$doctor->boss', '$doctor->crm', '$doctor->updated_at' WHERE person_doctor='$id'";
         $this->db->update($query_update);
         #$doctor->save();
 

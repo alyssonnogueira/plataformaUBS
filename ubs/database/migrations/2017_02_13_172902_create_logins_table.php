@@ -17,7 +17,7 @@ class CreateLoginsTable extends Migration
             $table->integer('person_doctor_login')->unsigned();
             $table->foreign('person_doctor_login')
                           ->references('id')
-                          ->on('persons')
+                          ->on('people')
                           ->onDelete('cascade')
                           ->primary();
             $table->string('email')->unique();

@@ -18,18 +18,18 @@ class CreateConsultationsTable extends Migration
             $table->integer('person_doctor')->unsigned();
             $table->foreign('person_doctor')
                           ->references('id')
-                          ->on('persons');
+                          ->on('people');
             $table->integer('person_pacient')->unsigned();
             $table->foreign('person_pacient')
                           ->references('id')
-                          ->on('persons');
+                          ->on('people');
             $table->string('blood_presure', 45);
             $table->float('weight');
-            $table->string('observations', 45);
-            $table->string('physical_exam', 45);
-            $table->string('foot_exam', 45);
-            $table->date('create_date');
-            $table->date('update_date');
+            $table->string('observations');
+            $table->string('physical_exam');
+            $table->string('foot_exam');
+            $table->date('created_date');
+            $table->date('updated_date');
             $table->boolean('sync');
             $table->index(['person_doctor', 'person_pacient'])
             ->primary();

@@ -18,11 +18,11 @@ class CreateAuditionsTable extends Migration
             $table->integer('person_doctor')->unsigned();
             $table->foreign('person_doctor')
                           ->references('id')
-                          ->on('persons');
+                          ->on('people');
             $table->integer('person_pacient')->unsigned();
             $table->foreign('person_pacient')
                           ->references('id')
-                          ->on('persons');
+                          ->on('people');
             $table->string('nutrition', 45);
             $table->string('hearing', 45);
             $table->string('vision', 45);
@@ -30,8 +30,8 @@ class CreateAuditionsTable extends Migration
             $table->string('cognition_memory', 45);
             $table->string('daily_activies', 45);
             $table->string('tumble', 45);
-            $table->date('create_date');
-            $table->date('update_date');
+            $table->date('created_date');
+            $table->date('updated_date');
             $table->boolean('sync');
             $table->index(['person_doctor', 'person_pacient'])
                           ->primary();

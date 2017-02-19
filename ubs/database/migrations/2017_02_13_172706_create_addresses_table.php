@@ -21,8 +21,8 @@ class CreateAddressesTable extends Migration
             $table->string('neighboorhood');
             $table->string('zip', 45);
             $table->string('street');
-            $table->integer('number');
-            $table->integer('complement');
+            $table->string('number');
+            $table->string('complement');
             $table->boolean('sync');
             $table->timestamps();
             $table->softDeletes();

@@ -12,6 +12,7 @@ class AddressSeed extends Seeder
     public function run()
     {
         App\Address::create([
+            'id' => 1,
         	'country' => 'Brasil', 
         	'state' => 'RS', 
         	'city' => 'Pelotas', 

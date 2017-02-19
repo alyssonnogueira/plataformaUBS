@@ -12,7 +12,7 @@ class DoctorSeed extends Seeder
     public function run()
     {
         App\Doctor::create([
-        	'person_doctor' => 1,
+        	'person_doctor' => 999,
         	'boss' => true
         	]);
     }

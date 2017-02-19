@@ -12,7 +12,7 @@ class PacientSeed extends Seeder
     public function run()
     {
         App\Pacient::create([
-        	'person_pacient' => 1,
+        	'person_pacient' => 999,
         	'sus' => str_random(10),
         	'height' => 1.70,
         	'weight' => 70.00,

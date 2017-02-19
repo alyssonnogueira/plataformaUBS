@@ -12,7 +12,8 @@ class PersonSeed extends Seeder
     public function run()
     {
         App\Person::create([
-        	'name' => 'paciente 00',
+        	'id' => 999,
+            'name' => 'paciente 00',
         	'cpf' => '00000000000',
         	'birth' => '2017-02-13 18:30:01',
         	'rg' => '000000000',

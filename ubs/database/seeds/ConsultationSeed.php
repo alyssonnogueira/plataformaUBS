@@ -12,8 +12,8 @@ class ConsultationSeed extends Seeder
     public function run()
     {
     	App\Consultation::create([
-            'person_doctor' => 1,
-            'person_pacient' => 1,
+            'person_doctor' => 999,
+            'person_pacient' => 999,
         	'blood_presure' => str_random(10),
         	'weight' => 80.00, 
         	'observations' => str_random(10),

@@ -12,8 +12,8 @@ class AuditionSeed extends Seeder
     public function run()
     {
         App\Audition::create([
-        	'person_doctor' => 1,
-        	'person_pacient' => 1,
+        	'person_doctor' => 999,
+        	'person_pacient' => 999,
 	        'nutrition' => str_random(10),
 	        'hearing' => str_random(10), 
 	        'vision' => str_random(10), 

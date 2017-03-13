@@ -13,7 +13,8 @@ class DoctorSeed extends Seeder
     {
         App\Doctor::create([
         	'person_doctor' => 999,
-        	'boss' => true
+        	'boss' => true,
+            'crm' => "0000000000"
         	]);
     }
 }

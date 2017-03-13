@@ -14,7 +14,7 @@ class LoginSeed extends Seeder
         App\Login::create([
         	'doctor_login' => 999,
         	'email' => 'doctor@ubs.com',
-        	'password' => 'mamao',
+        	'password' => bcrypt('mamao'),
         	'sync' => true
         	]);
     }

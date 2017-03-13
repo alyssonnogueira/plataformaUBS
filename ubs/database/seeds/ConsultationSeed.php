@@ -19,8 +19,8 @@ class ConsultationSeed extends Seeder
         	'observations' => str_random(10),
         	'physical_exam' => str_random(10), 
         	'foot_exam' => str_random(10), 
-        	'create_date' => '2017-02-13 18:30:01',
-        	'update_date' => '2017-02-13 18:30:01', 
+        	'created_date' => '2017-02-13 18:30:01',
+        	'updated_date' => '2017-02-13 18:30:01', 
         	'sync' => TRUE
         ]);
     }

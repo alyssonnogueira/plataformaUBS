@@ -22,6 +22,7 @@ class CreateLoginsTable extends Migration
             $table->string('email', 100);
             $table->string('password');
             $table->boolean('sync');
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

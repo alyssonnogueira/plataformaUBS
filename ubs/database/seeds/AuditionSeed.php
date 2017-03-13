@@ -21,8 +21,8 @@ class AuditionSeed extends Seeder
 	        'cognition_memory' => str_random(10), 
 	        'daily_activies' => str_random(10), 
 	        'tumble' => str_random(10), 
-	        'create_date' => '2017-02-13 18:30:01', 
-	        'update_date' => '2017-02-13 18:30:01', 
+	        'created_date' => '2017-02-13 18:30:01', 
+	        'updated_date' => '2017-02-13 18:30:01', 
 	        'sync' => TRUE
         ]);
     }

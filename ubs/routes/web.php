@@ -13,11 +13,7 @@
 
 Route::group(array('prefix' => 'api'), function()
 {
-
-  Route::get('/', function () {
-      return response()->json(['message' => 'UBS API', 'status' => 'Connected']);;
-  });
-
+ 
   Route::resource('addresses', 'AddressesController');
   Route::resource('auditions', 'AuditionsController');
   Route::resource('consultations', 'ConsultationsController');
@@ -30,10 +26,14 @@ Route::group(array('prefix' => 'api'), function()
 
 });
 
-Route::get('/', function () {
-    return redirect('api');
+Route::get('/api', function () {
+    return response()->json(['message' => 'UBS API', 'status' => 'Connected']);
 });
 
-#Route::get('/', function () {
-#    return view('welcome');
-#});
+Route::get('/', function () {
+    return view('main');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

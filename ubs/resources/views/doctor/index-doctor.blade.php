@@ -1,7 +1,8 @@
 @extends('layouts.inside')
 @section('content')
 <p>
-	Lista de Médicos
+	Lista de Médicos 
+	<a href="{!! url('doctor/create') !!}" class="btn btn-success" console="button"> Cadastrar Médico </a>
 </p>
 <div class="row">
 	<?php foreach ($doctors as $key => $value): ?>

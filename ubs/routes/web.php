@@ -11,8 +11,7 @@
 |
 */
 
-Route::group(array('prefix' => 'api'), function()
-{
+Route::group(array('prefix' => 'api'), function(){
  
   Route::resource('addresses', 'AddressesController');
   Route::resource('auditions', 'AuditionsController');
@@ -35,5 +34,27 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+//API::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(array('prefix' => 'doctor'), function(){
+ 
+  Route::get('/', 'DoctorController@index');
+  Route::get('show/{id}', 'DoctorController@show');
+  Route::get('edit/{id}', 'DoctorController@edit');
+  Route::post('edit/{id}', 'DoctorController@update');
+  Route::get('delete/{id}', 'DoctorController@delete');
+  Route::post('create/{id}', 'DoctorController@create');
+
+});
+
+Route::group(array('prefix' => 'pacient'), function(){
+ 
+  Route::resource('/', 'PacientController@index');
+  Route::resource('show', 'PacientController@show');
+  Route::resource('edit', 'PacientController@edit');
+  Route::resource('delete', 'PacientController@delete');
+  Route::resource('create', 'PacientController@create');
+
+});

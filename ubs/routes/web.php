@@ -44,17 +44,19 @@ Route::group(array('prefix' => 'doctor'), function(){
   Route::get('show/{id}', 'DoctorController@show');
   Route::get('edit/{id}', 'DoctorController@edit');
   Route::post('edit/{id}', 'DoctorController@update');
-  Route::get('delete/{id}', 'DoctorController@delete');
-  Route::post('create/{id}', 'DoctorController@create');
-
+  Route::get('delete/{id}', 'DoctorController@destroy');
+  Route::post('store/', 'DoctorController@store');
+  Route::get('create/', 'DoctorController@create');
 });
 
 Route::group(array('prefix' => 'pacient'), function(){
  
-  Route::resource('/', 'PacientController@index');
-  Route::resource('show', 'PacientController@show');
-  Route::resource('edit', 'PacientController@edit');
-  Route::resource('delete', 'PacientController@delete');
-  Route::resource('create', 'PacientController@create');
+  Route::get('/', 'PacientController@index');
+  Route::get('show/{id}', 'PacientController@show');
+  Route::get('edit/{id}', 'PacientController@edit');
+  Route::post('edit/{id}', 'PacientController@update');
+  Route::get('delete/{id}', 'PacientController@delete');
+  Route::get('create', 'PacientController@create');
+  Route::post('store/', 'PacientController@store');
 
 });

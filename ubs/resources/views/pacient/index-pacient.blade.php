@@ -1,24 +1,19 @@
 @extends('layouts.inside')
 @section('content')
-<p>
-	Lista Post
-</p>
+
 <div class="row">
-	<?php foreach ($posts as $key => $value): ?>
-		<div class="col-md-4">
-			<div class"thumbnail">
-				<img src="{!! url($value->imagem) !!}" alt="" />
-				<div class="caption">
-					<h3>{!! $value->titulo !!}</h3>
-					<span class="pull-right"> {!! $value->created_at->diffForHumans() !!}</span>
-					<p>
-						<a href="{!! url('visualizar-post/'.$value->id) !!}" class="btn btn-success" console="button"> Visualizar </a>
-						<a href="{!! url('editar-post/'.$value->id) !!}" class="btn btn-primary" console="button"> Editar </a>
-						<a href="{!! url('deletar-post/'.$value->id) !!}" class="btn btn-danger" console="button"> Deletar </a>
-					</p>
-				</div>
-			</div>
-		</div>
-	<?php endforeach; ?>
+<?php foreach ($pacients as $key => $value): ?>
+    <div class="conteudo position-ref full-height">
+            <table border="1">
+                <tr><td colspan="4">Lista de Pacientes</td></tr>
+                <tr><td>Id</td><td>Nome</td><td>Email</td><td>Ações</td></tr>
+                <tr><td>{!! $value->id !!}</td><td>{!! $value->name !!}</td><td>{!! $value->email !!}</td><td> 
+		<a href="{!! url('pacient/show/'.$value->id) !!}" class="btn btn-success" console="button"> Visualizar </a>
+		<a href="{!! url('pacient/edit/'.$value->id) !!}" class="btn btn-primary" console="button"> Editar </a>
+                <a href="{!! url('pacient/delete/'.$value->id) !!}" class="btn btn-danger" console="button"> Remover </a></td></tr>
+            </table>
+    </div>
+
+<?php endforeach; ?>
 </div>
 @endsection

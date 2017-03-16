@@ -40,7 +40,7 @@ class PacientController extends Controller
         //$people = $this->db->select($query_select);
         
 
-        return view('pacient/index-pacient')->with('pacient', $pacients);
+        return view('pacient/index-pacient')->with('pacients', $pacients);
     }
 
     /**
@@ -83,7 +83,7 @@ class PacientController extends Controller
         $this->db->insert($query_insert);
 
         #SAVE PACIENT
-        $query_insert = "INSERT INTO pacients (person_pacient, armPerimeter, bedridden, bookSenior, deleted_at, depression, dm, has, height, insanity, locomotonProblem, needCare, oralHealthRisk, osteoporosis, skinColor, sus, weight,created_at, updated_at)
+        $query_insert = "INSERT INTO pacients (person_pacient, armPerimeter, bedridden, bookSenior, deleted_at, depression, dm, has, height, insanity, locomotionProblem, needCare, oralHealthRisk, osteoporosis, skinColor, sus, weight,created_at, updated_at)
         values('$person_id', '$request->armPerimeter','$request->bedridden', '$request->bookSenior', '$mytime', '$request->depression', '$request->dm', '$request->has', '$request->height', '$request->insanity', '$request->locomotionProblem', '$request->needCare', '$request->oralHealthRisk', '$request->osteoporosis', '$request->skinColor', '$request->sus', '$request->weight' ,'$mytime', '$mytime')";
         $this->db->insert($query_insert);
 
@@ -139,7 +139,7 @@ class PacientController extends Controller
         $this->db->update($query_update);
 
         #UPDATE PACIENT
-        $query_update = "UPDATE pacients SET armPerimeter='$request->armPerimeter', bedridden='$request->bedridden', bookSenior='$request->bookSenior', depression='$request->depression', dm='$request->dm', has='$request->has', height='$request->height', insanity='$request->insanity', locomotonProblem='$request->locomotionProblem', needCare='$request->needCare', oralHealthRisk='$request->oralHealthRisk', osteoporosis='$request->osteoporosis', skinColor='$request->skinColor', sus='$request->sus', weight='$request->weight', updated_at='$mytime' WHERE person_pacient='$id'";
+        $query_update = "UPDATE pacients SET armPerimeter='$request->armPerimeter', bedridden='$request->bedridden', bookSenior='$request->bookSenior', depression='$request->depression', dm='$request->dm', has='$request->has', height='$request->height', insanity='$request->insanity', locomotionProblem='$request->locomotionProblem', needCare='$request->needCare', oralHealthRisk='$request->oralHealthRisk', osteoporosis='$request->osteoporosis', skinColor='$request->skinColor', sus='$request->sus', weight='$request->weight', updated_at='$mytime' WHERE person_pacient='$id'";
         $this->db->update($query_update);
         
         $redirectTo = 'pacient/show/'.$id;
@@ -168,7 +168,7 @@ class PacientController extends Controller
             $this->db->delete($query_delete);
 
             #DELETE ADDRESS
-            $query_delete = "DELETE FROM addresses WHERE id='$doctor->address_id'";
+            $query_delete = "DELETE FROM addresses WHERE id='$pacient->address_id'";
             $this->db->delete($query_delete);
         endforeach; 
 

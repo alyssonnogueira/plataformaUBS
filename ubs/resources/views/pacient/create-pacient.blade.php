@@ -152,6 +152,7 @@
 		</div>
 	</div>
 </div>
+
 <button type="submit" class="btn btn-default">Salvar Alteração</button>
 </form>
 @endsection

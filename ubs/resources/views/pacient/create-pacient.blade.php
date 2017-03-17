@@ -6,6 +6,7 @@
   		{{ session('erro')}}
   	</div>
   @endif
+  
 <form action="{{ url('pacient/store/'.$pacient->person_pacient)}}" method="post" enctype="multipart/form-data">
   {!! csrf_field() !!}
 <div class="row">

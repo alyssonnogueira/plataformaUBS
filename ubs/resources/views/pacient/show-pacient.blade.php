@@ -1,52 +1,57 @@
 @extends('layouts.inside')
 
 @section('content')
-<div class="row">
+<head>
+ <link rel="stylesheet" href="/css/estilo.css" media="screen" title="no title" charset="utf-8" >
+    <script type="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
+    <script type="/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .section{
+            position:fixed;
+            left:0px;
+            top: 150px;
+            width:100%;
+            text-align: left;
+        }
+        
+    </style>
+</head>
+<div class="section">
 	<?php foreach ($pacient as $key => $value): ?>
-	<div class="col-md-12">
-	<h1> Perfil </h1>
-		<div class="row">
-			<center>
-			</center>
-			
-		</div>
-		<div class="row">
-			<h3> Paciente: {!! $value->person_pacient !!} </h3>
-			<h3> Nome: {!! $value->name !!} </h3>
-			<h3> Email: {!! $value->email !!} </h3>
-			<h3> Rua: {!! $value->street !!} </h3>
-			<h3> CEP: {!! $value->zip !!} </h3>
-			<h3> Numero: {!! $value->number !!} </h3>
-			<h3> Complemento: {!! $value->complement !!} </h3>
-			<h3> Pais: {!! $value->country !!} </h3>
-			 <h3> Estado: {!! $value->state !!} </h3>
-			 <h3> Cidade: {!! $value->city !!}</h3>
-			 <h3> Bairro: {!! $value->neighboorhood !!}</h3> 
-			 <h3> CPF: {!! $value->cpf !!} </h3> 
-			 <h3> Data de Nascimento: {!! $value->birth !!} </h3>
-			 <h3> RG: {!! $value->rg !!} </h3>
-			 <h3> Telefone: {!! $value->phone !!} </h3>
-			 <h3> Estado Civil: {!! $value->civil_status !!} </h3>
-                         <h3> SUS: {!! $value->sus !!}</h3>
-                         <h3> Peso: {!! $value->weight !!}</h3>
-                         <h3> Altura: {!! $value->height !!}</h3>
-                         <h3> Cor: {!! $value->skinColor !!}</h3>
-                         <h3> Problema de locomoção: {!! $value->locomotionProblem !!}</h3>
-                         <h3> Acamado: {!! $value->bedridden !!}</h3>
-                         <h3> Osteoporose: {!! $value->osteoporosis !!}</h3>
-                         <h3> Depressão: {!! $value->depression !!}</h3>
-                         <h3> Insanidade: {!! $value->insanity !!}</h3>
-                         <h3> Necessita cuidados: {!! $value->needCare !!}</h3>
-                         <h3> Perímetro do braço: {!! $value->armPerimeter !!}</h3>
-                         <h3> DM: {!! $value->dm !!}</h3>
-                         <h3> HAS: {!! $value->has !!}</h3>
-                         <h3> Caderneta de idoso: {!! $value->bookSenior !!}</h3>
-                         <h3> Risco para a saúde bucal: {!! $value->oralHealthRisk !!}</h3>
-			 <a href="{!! url('pacient') !!}" class="btn btn-back" console="button"> Voltar </a>
- 			<br>
-		</div>
-	</div>
+            <table align="center" width=600>
+                <tr><td align="center" colspan="2"><h2>Perfil: {!! $value->name !!}</h2></td></tr>
+		<tr>	<td> Email: {!! $value->email !!} </td>
+			<td> Rua: {!! $value->street !!} </td></tr>
+		<tr>	<td> CEP: {!! $value->zip !!} </td>
+			<td> Numero: {!! $value->number !!} </td></tr>
+		<tr>	<td> Complemento: {!! $value->complement !!} </td>
+			<td> Pais: {!! $value->country !!} </td></tr>
+		<tr>	 <td> Estado: {!! $value->state !!} </td>
+			 <td> Cidade: {!! $value->city !!}</td></tr>
+		<tr>	 <td> Bairro: {!! $value->neighboorhood !!}</td> 
+			 <td> CPF: {!! $value->cpf !!} </td> </tr>
+		<tr>	 <td> Data de Nascimento: {!! $value->birth !!} </td>
+			 <td> RG: {!! $value->rg !!} </td></tr>
+		<tr>	 <td> Telefone: {!! $value->phone !!} </td>
+			 <td> Estado Civil: {!! $value->civil_status !!} </td></tr>
+                <tr>         <td> SUS: {!! $value->sus !!}</td>
+                         <td> Peso: {!! $value->weight !!}</td></tr>
+                <tr>         <td> Altura: {!! $value->height !!}</td>
+                         <td> Cor: {!! $value->skinColor !!}</td></tr>
+                <tr>         <td> Problema de locomoção: {!! $value->locomotionProblem !!}</td>
+                         <td> Acamado: {!! $value->bedridden !!}</td></tr>
+                <tr>         <td> Osteoporose: {!! $value->osteoporosis !!}</td>
+                         <td> Depressão: {!! $value->depression !!}</td></tr>
+                <tr>         <td> Insanidade: {!! $value->insanity !!}</td>
+                         <td> Necessita cuidados: {!! $value->needCare !!}</td></tr>
+                <tr>         <td> Perímetro do braço: {!! $value->armPerimeter !!}</td>
+                         <td> DM: {!! $value->dm !!}</td></tr>
+                <tr>         <td> HAS: {!! $value->has !!}</td>
+                         <td> Caderneta de idoso: {!! $value->bookSenior !!}</td></tr>
+                <tr>         <td> Risco para a saúde bucal: {!! $value->oralHealthRisk !!}</td></tr>
+                <tr><td colspan="2" align="center"><button><a href="{!! url('pacient') !!}" class="btn btn-back" console="button"> Voltar </a></button></td></tr>
 	<?php endforeach; ?>
+            </table>
 </div>
 
 @endsection

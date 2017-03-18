@@ -39,7 +39,6 @@ class PacientController extends Controller
         //$query_select = "SELECT * FROM people";
         //$people = $this->db->select($query_select);
         
-
         return view('pacient/index-pacient')->with('pacients', $pacients);
     }
 
@@ -83,8 +82,8 @@ class PacientController extends Controller
         $this->db->insert($query_insert);
 
         #SAVE PACIENT
-        $query_insert = "INSERT INTO pacients (person_pacient, armPerimeter, bedridden, bookSenior, deleted_at, depression, dm, has, height, insanity, locomotionProblem, needCare, oralHealthRisk, osteoporosis, skinColor, sus, weight,created_at, updated_at)
-        values('$person_id', '$request->armPerimeter','$request->bedridden', '$request->bookSenior', '$mytime', '$request->depression', '$request->dm', '$request->has', '$request->height', '$request->insanity', '$request->locomotionProblem', '$request->needCare', '$request->oralHealthRisk', '$request->osteoporosis', '$request->skinColor', '$request->sus', '$request->weight' ,'$mytime', '$mytime')";
+        $query_insert = "INSERT INTO pacients (person_pacient, armPerimeter, bedridden, bookSenior, depression, dm, has, height, insanity, locomotionProblem, needCare, oralHealthRisk, osteoporosis, skinColor, sus, weight, created_at, updated_at)
+        values('$person_id', '$request->armPerimeter','$request->bedridden', '$request->bookSenior', '$request->depression', '$request->dm', '$request->has', '$request->height', '$request->insanity', '$request->locomotionProblem', '$request->needCare', '$request->oralHealthRisk', '$request->osteoporosis', '$request->skinColor', '$request->sus', '$request->weight' ,'$mytime', '$mytime')";
         $this->db->insert($query_insert);
 
         $redirectTo = 'pacient/show/'.$person_id;

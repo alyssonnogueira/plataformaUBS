@@ -1,70 +1,81 @@
 @inject('showUser', 'App\Http\Controllers\Auth\LoginController')
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- Branding Image -->
-      <a class="navbar-brand" href="{{ url('/') }}">
-          {{ config('app.name', 'UBS Pelotas') }}
-      </a>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/estilo.css" media="screen" title="no title" charset="utf-8" >
+    <script type="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
+    <script type="/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
+            height: 100vh;
+            padding:0px;
+            margin:0px;
+        }
+            
+ 
+	#menu ul {
+            padding:0px;
+            margin:0px;
+            float: left;
+            width: 100%;
+            background-color:#EDEDED;
+            list-style:none;
+            font:100% Tahoma;
+            position:relative;
+            left:0px;
+            top:0px;
+            height:30px;
+	}
+ 
+	#menu ul li { display: inline; }
+ 
+	#menu ul li a {
+            background-color:#EDEDED;
+            color: #333;
+            text-decoration: none;
+            border-bottom:3px solid #EDEDED;
+            padding: 2px 10px;
+            float:left;
+	}
+ 
+	#menu ul li a:hover {
+            background-color:#D6D6D6;
+            color: #6D6D6D;
+            border-bottom:3px solid #EA0000;
+	}     
+        
+           
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="{{ url('/home') }}">Home</a></li>
+            <li><a href="{{ url('doctor')}}">Médicos</a></li>
+            <li><a href="{{url('pacient')}}">Pacientes</a></li>
+            <li><a href="{{ url('reports')}}">Relatórios</a></li>
+            <li><a href="{{ url('ubs')}}">Ubs</a></li>
+            @if (Route::has('login'))
+                @if (Auth::check())
+                <li style="float:right"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    {{ $showUser->whoIs(Auth::user()->doctor_login) }}
+                </a></li>
+                <li style="float:right"><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Logout
+                </a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>           
+            @else
+            <li style="float:right"><a href="{{ url('/login') }}">Login</a></li>
+                @endif
+            @endif           
+        </ul>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="{{ url('doctor')}}">Médicos <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{url('pacient')}}">Pacientes</a></li>
-        <li ><a href="{{ url('reports')}}">Relatórios <span class="sr-only">(current)</span></a></li>
-        <li ><a href="{{ url('ubs')}}">Ubs <span class="sr-only">(current)</span></a></li>
-      </ul>
-      <!-- <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form> -->
-      <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-      <ul class="nav navbar-nav navbar-right">
-              <!-- Authentication Links -->
-              @if (Auth::guest())
-                  <li><a href="{{ route('login') }}">Login</a></li>
-              <!-- Auth::user()->doctor_login    <li><a href="{{ route('register') }}">Register</a></li> -->
-              @else
-                  <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ $showUser->whoIs(Auth::user()->doctor_login) }} <span class="caret"></span>
-                      </a>
-
-                      <ul class="dropdown-menu" role="menu">
-                          <li>
-                              <a href="{{ route('logout') }}"
-                                  onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                                  Logout
-                              </a>
-
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                  {{ csrf_field() }}
-                              </form>
-                          </li>
-                      </ul>
-                  </li>
-              @endif
-          </ul>
-        </div>
-    <script src="/js/app.js"></script>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+</body>
+</html>

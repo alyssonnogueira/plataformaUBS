@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-	@include("pages.head")
+	<title>UBS Pelotas - @yield('title')</title>
+        @include("pages.head")
 <body>
-	@include("pages.menu")
-	<div class="container">
+	@section('sidebar')
+        @include("pages.menu")
+	<div class="section">
 	@yield("content")
 	</div>
+        @include("pages.footer")
 </body>
 </html>
+

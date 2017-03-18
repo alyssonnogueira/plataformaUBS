@@ -140,7 +140,7 @@ class DoctorController extends Controller
         
         #UPDATE LOGIN
         $password = bcrypt($request->password);
-        $query_update = "UPDATE logins SET email='$$request->email', password='$password', sync='0' WHERE doctor_login='$id'";
+        $query_update = "UPDATE logins SET email='$request->email', password='$password', sync='0' WHERE doctor_login='$id'";
         $this->db->update($query_update);
 
         $redirectTo = 'doctor/show/'.$id;

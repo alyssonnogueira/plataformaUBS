@@ -62,7 +62,9 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('doctor/create-doctor');
+        $query_select = "SELECT name from ubses";
+        $ubses = $this->db->select($query_select);
+        return view('doctor/create-doctor')->with('ubses',$ubses);
     }
 
     public function store(Request $request){

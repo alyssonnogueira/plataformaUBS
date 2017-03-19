@@ -49,7 +49,9 @@ class PacientController extends Controller
      */
     public function create()
     {
-        return view('pacient/create-pacient');
+        $query_select = "SELECT name from ubses";
+        $ubses = $this->db->select($query_select);
+        return view('pacient/create-pacient')->with('ubses',$ubses);
     }
 
     /**

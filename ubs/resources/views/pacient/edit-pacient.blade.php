@@ -40,7 +40,12 @@
 	    		<tr><td><label for="phone">Telefone</label>
                             <input name="phone" type="text" class="form-control" id="phone" placeholder="phone" value="{!! $pacient->phone !!}"></td>
 	    		<td><label for="civil_status">Estado Civil</label>
-                            <input name="civil_status" type="text" class="form-control" id="civil_status" placeholder="civil_status" value="{!! $pacient->civil_status !!}"></td></tr>
+                            <select name="civil_status" type="text" class="form-control" id="civil_status" >
+                                <option value="Casado">Casado</option>
+                                <option value="Separado">Separado</option>
+                                <option value="Solteiro">Solteiro</option>
+                                <option value="Viuvo">Viuvo</option>
+                            </select></td></tr>
                         <input name="email" type="hidden" class="form-control" id="email" placeholder="email" value="{!! $pacient->email !!}">
 	    		<tr><td><label for="sus">SUS</label>
                             <input name="sus" type="text" class="form-control" id="sus" placeholder="sus" value="{!! $pacient->sus !!}"></td>
@@ -49,33 +54,90 @@
 	    		<tr><td><label for="height">Altura</label>
                             <input name="height" type="text" class="form-control" id="height" placeholder="height" value="{!! $pacient->height !!}"></td>
                         <td><label for="skinColor">Cor</label>
-                            <input name="skinColor" type="text" class="form-control" id="skinColor" placeholder="skinColor" value="{!! $pacient->skinColor !!}"></td></tr>
+                            <select name="skinColor" type="text" class="form-control" id="skinColor">
+                                <option value="Branco">Branco</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Pardo">Pardo</option>
+                            </select></td></tr>
 	    		<tr><td><label for="locomotionProblem">Problema de locomoção</label>
-                            <input name="locomotionProblem" type="text" class="form-control" id="locomotionProblem" placeholder="locomotionProblem" value="{!! $pacient->locomotionProblem !!}"></td>
+	    		<select name="locomotionProblem" type="text" class="form-control" id="locomotionProblem" placeholder="locomotionProblem">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td>
                         <td><label for="bedridden">Acamado</label>
-                            <input name="bedridden" type="text" class="form-control" id="bedridden" placeholder="bedridden" value="{!! $pacient->bedridden !!}"></td></tr>
+	    		<select name="bedridden" type="text" class="form-control" id="bedridden" placeholder="bedridden">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td></tr>
 	    		<tr><td><label for="osteoporosis">Osteoporose</label>
-                            <input name="osteoporosis" type="text" class="form-control" id="osteoporosis" placeholder="osteoporosis" value="{!! $pacient->osteoporosis !!}"></td>
+	    		<select name="osteoporosis" type="text" class="form-control" id="osteoporosis" placeholder="osteoporosis">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td>
   			<td><label for="depression">Depressão</label>
-                            <input name="depression" type="text" class="form-control" id="depression" placeholder="depression" value="{!! $pacient->depression !!}"></td></tr>
+	    		<select name="depression" type="text" class="form-control" id="depression" placeholder="depression">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td></tr>
   			<tr><td><label for="insanity">Insanidade</label>
-                            <input name="insanity" type="text" class="form-control" id="insanity" placeholder="insanity" value="{!! $pacient->insanity !!}"></td>
+                        <select name="insanity" type="text" class="form-control" id="insanity" placeholder="insanity">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td>
 	    		<td><label for="needCare">Necessita de cuidados</label>
-                            <input name="needCare" type="text" class="form-control" id="needCare" placeholder="needCare" value="{!! $pacient->needCare !!}"></td></tr>
+	    		<select name="needCare" type="text" class="form-control" id="needCare" placeholder="needCare">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td></tr>
 	    		<tr><td><label for="armPerimeter">Perímetro do braço</label>
-                            <input name="armPerimeter" type="text" class="form-control" id="armPerimeter" placeholder="armPerimeter" value="{!! $pacient->armPerimeter !!}"></td>
+	    		<select name="armPerimeter" type="text" class="form-control" id="armPerimeter" placeholder="armPerimeter">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td>
   			<td><label for="dm">DM</label>
                             <input name="dm" type="text" class="form-control" id="dm" placeholder="dm" value="{!! $pacient->dm !!}"></td></tr>
   			<tr><td><label for="has">HAS</label>
                             <input name="has" type="text" class="form-control" id="has" placeholder="has" value="{!! $pacient->has !!}"></td>
   			<td><label for="bookSenior">Caderneta de idoso</label>
-                            <input name="bookSenior" type="text" class="form-control" id="bookSenior" placeholder="bookSenior" value="{!! $pacient->bookSenior !!}"></td></tr>
+	    		<select name="bookSenior" type="text" class="form-control" id="bookSenior" placeholder="bookSenior">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td></tr>
   			<tr><td><label for="oralHealthRisk">Risco para a saúde bucal</label>
-                            <input name="oralHealthRisk" type="text" class="form-control" id="oralHealthRisk" placeholder="oralHealthRisk" value="{!! $pacient->oralHealthRisk !!}"></td>
+	    		<select name="oralHealthRisk" type="text" class="form-control" id="oralHealthRisk" placeholder="oralHealthRisk">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select></td>
   			<td><label for="country">País</label>
                             <input name="country" type="text" class="form-control" id="country" placeholder="country" value="{!! $pacient->country !!}"></td></tr>
   			<tr><td><label for="state">Estado</label>
-                            <input name="state" type="text" class="form-control" id="state" placeholder="state" value="{!! $pacient->state !!}"></td>
+                            <select name="state" type="text" class="form-control" id="state"  >
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MG">MG</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PE">PE</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="RS">RS</option>
+                                <option value="SC">SC</option>
+                                <option value="SE">SE</option>
+                                <option value="SP">SP</option>
+                                <option value="RS">TO</option>
+                            </select></td>
   			<td><label for="">Cidade</label>
                             <input name="city" type="text" class="form-control" id="city" placeholder="city" value="{!! $pacient->city !!}"></td></tr>
 	    		<tr><td><label for="neighboorhood">Bairro</label>

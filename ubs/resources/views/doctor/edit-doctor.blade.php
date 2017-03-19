@@ -29,7 +29,7 @@
     <table align="center" width=800>
         <tr><td align="center" colspan="2"><h2>Editar médico</h2></td></tr>	
 	    		<tr><td><label for="name">Nome</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="name" value="{!! $doctor->name !!}"></td>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="name" value="{!! $doctor->name !!}"></td>
                         <td><label for="cpf">CPF</label>
                             <input name="cpf" type="text" class="form-control" id="cpf" placeholder="cpf" value="{!! $doctor->cpf !!}"></td></tr>
 	    		<tr><td><label for="birth">Data de Nascimento</label>
@@ -39,19 +39,53 @@
 	    		<tr><td><label for="phone">Telefone</label>
                             <input name="phone" type="text" class="form-control" id="phone" placeholder="phone" value="{!! $doctor->phone !!}"></td>
                         <td><label for="civil_status">Estado Civil</label>
-                            <input name="civil_status" type="text" class="form-control" id="civil_status" placeholder="civil_status" value="{!! $doctor->civil_status !!}"></td></tr>
+                            <select name="civil_status" type="text" class="form-control" id="civil_status" >
+                                <option value="Casado">Casado</option>
+                                <option value="Separado">Separado</option>
+                                <option value="Solteiro">Solteiro</option>
+                                <option value="Viuvo">Viuvo</option>
+                            </select></td></tr>
 	    		<tr><td><label for="crm">CRM</label>
                             <input name="crm" type="text" class="form-control" id="crm" placeholder="crm" value="{!! $doctor->crm !!}"></td>
                             <input name="email" type="hidden" class="form-control" id="email" placeholder="email" value="{!! $doctor->email !!}">
 	    		<td><label for="password">Senha</label>
                             <input name="password" type="password" class="form-control" id="password" placeholder="password" value="{!! $doctor->password !!}"></td></tr>
                         <tr><td><label for="boss">Médico Chefe</label>
-                            <input name="boss" type="text" class="form-control" id="boss" placeholder="boss" value="{!! $doctor->boss !!}"></td>
+                            <select name="boss" type="text" class="form-control" id="boss">
+                                <option value="1">Sim</option>
+                                <option value="0">Não</option>
+                            </select></td>
                             <input name="doctor_login" type="hidden" class="form-control" id="doctor_login" placeholder="doctor_login" value="{!! $doctor->doctor_login !!}">
 	    		<td><label for="country">País</label>
                             <input name="country" type="text" class="form-control" id="country" placeholder="country" value="{!! $doctor->country !!}"></td></tr>
                         <tr><td><label for="state">Estado</label>
-                            <input name="state" type="text" class="form-control" id="state" placeholder="state" value="{!! $doctor->state !!}"></td>
+                            <select name="state" type="text" class="form-control" id="state">
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MG">MG</option>
+                            <option value="MS">MS</option>
+                            <option value="MT">MT</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PE">PE</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="RS">RS</option>
+                            <option value="SC">SC</option>
+                            <option value="SE">SE</option>
+                            <option value="SP">SP</option>
+                            <option value="RS">TO</option>
+                        </select></td>
 	    		<td><label for="">Cidade</label>
                             <input name="city" type="text" class="form-control" id="city" placeholder="city" value="{!! $doctor->city !!}"></td></tr>
                         <tr><td><label for="neighboorhood">Bairro</label>

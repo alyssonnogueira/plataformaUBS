@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<title>UBS Pelotas - @yield('title')</title>
+	<title>UBS Pelotas@yield('title')</title>
         @include("pages.head")
 <body>
 	@section('sidebar')

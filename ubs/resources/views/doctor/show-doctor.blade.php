@@ -1,21 +1,7 @@
 @extends('layouts.inside')
 
 @section('content')
-<head>
- <link rel="stylesheet" href="/css/estilo.css" media="screen" title="no title" charset="utf-8" >
-    <script type="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
-    <script type="/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        .section{
-            position:fixed;
-            left:0px;
-            top: 150px;
-            width:100%;
-            text-align: left;
-        }
-        
-    </style>
-</head>
+
 <body>
     <div class="section">
         <?php foreach ($doctor as $key => $value): ?>
@@ -25,7 +11,7 @@
                 <tr><td>Email: {!! $value->email !!}</td></tr>
                 <tr><td>Rua: {!! $value->street !!} </td></tr>
                 <tr><td>CEP: {!! $value->zip !!} </td></tr>
-                <tr><td>Numero: {!! $value->number !!}</td></tr> 
+                <tr><td>Numero: {!! $value->number !!}</td></tr>
                 <tr><td>Complemento: {!! $value->complement !!}</td></tr>
                 <tr><td>Pais: {!! $value->country !!} </td></tr>
                 <tr><td>Estado: {!! $value->state !!} </td></tr>

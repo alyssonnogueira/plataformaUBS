@@ -1,0 +1,13 @@
+.primary-color {
+  background-color: #1976d2;
+}
+
+.card-panel-title {
+  margin: 0px 0px 0px 0px !important;
+}
+
+nav {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}

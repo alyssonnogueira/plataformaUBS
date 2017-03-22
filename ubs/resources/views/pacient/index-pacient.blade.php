@@ -1,20 +1,6 @@
 @extends('layouts.inside')
 @section('content')
-<head>
- <link rel="stylesheet" href="/css/estilo.css" media="screen" title="no title" charset="utf-8" >
-    <script type="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
-    <script type="/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        .section{
-            position:fixed;
-            left:0px;
-            top: 200px;
-            width:100%;
-            text-align: center;
-        }
-        
-    </style>
-</head>
+
 <body>
     <div class="section">
         <table align="center" width=900>
@@ -27,9 +13,9 @@
             <tr><td colspan="4">Lista de Pacientes</td></tr>
             <tr><td>Id</td><td>Nome</td><td>Email</td><td>Ações</td></tr>
             <?php foreach ($pacients as $key => $value): ?>
-                    <tr><td>{!! $value->id !!}</td><td>{!! $value->name !!}</td><td>{!! $value->email !!}</td><td> 
-                    <a href="{!! url('pacient/show/'.$value->id) !!}" class="btn btn-success" console="button">Visualizar</a>    
-                    <a href="{!! url('pacient/edit/'.$value->id) !!}" class="btn btn-primary" console="button">Editar</a>    
+                    <tr><td>{!! $value->id !!}</td><td>{!! $value->name !!}</td><td>{!! $value->email !!}</td><td>
+                    <a href="{!! url('pacient/show/'.$value->id) !!}" class="btn btn-success" console="button">Visualizar</a>
+                    <a href="{!! url('pacient/edit/'.$value->id) !!}" class="btn btn-primary" console="button">Editar</a>
                     <a href="{!! url('pacient/delete/'.$value->id) !!}" class="btn btn-danger" console="button">Remover</a></td></tr>
             <?php endforeach; ?>
     </table>

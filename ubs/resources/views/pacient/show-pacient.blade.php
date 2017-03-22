@@ -1,21 +1,7 @@
 @extends('layouts.inside')
 
 @section('content')
-<head>
- <link rel="stylesheet" href="/css/estilo.css" media="screen" title="no title" charset="utf-8" >
-    <script type="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
-    <script type="/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        .section{
-            position:fixed;
-            left:0px;
-            top: 150px;
-            width:100%;
-            text-align: left;
-        }
-        
-    </style>
-</head>
+
 <div class="section">
 	<?php foreach ($pacient as $key => $value): ?>
             <table align="center" width=600>
@@ -28,7 +14,7 @@
 			<td> Pais: {!! $value->country !!} </td></tr>
 		<tr>	 <td> Estado: {!! $value->state !!} </td>
 			 <td> Cidade: {!! $value->city !!}</td></tr>
-		<tr>	 <td> Bairro: {!! $value->neighboorhood !!}</td> 
+		<tr>	 <td> Bairro: {!! $value->neighboorhood !!}</td>
 			 <td> CPF: {!! $value->cpf !!} </td> </tr>
 		<tr>	 <td> Data de Nascimento: {!! $value->birth !!} </td>
 			 <td> RG: {!! $value->rg !!} </td></tr>

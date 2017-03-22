@@ -6,31 +6,16 @@
   		{{ session('erro')}}
   	</div>
   @endif
-<head>
- <link rel="stylesheet" href="/css/estilo.css" media="screen" title="no title" charset="utf-8" >
-    <script type="https://code.jquery.com/jquery-3.1.1.min.js" charset="utf-8"></script>
-    <script type="/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        .section{
-            position:fixed;
-            left:20px;
-            top: 130px;
-            width:100%;
-            text-align: left;
-        }
-        
-        
-    </style>
-</head>
+
 <body>
 
 <form action="{{ url('pacient/edit/'.$pacient->person_pacient)}}" method="post" enctype="multipart/form-data">
   {!! csrf_field() !!}
     <div class="section">
     <table align="center" width=800>
-        <tr><td align="center" colspan="2"><h2>Editar paciente</h2></td></tr>	
+        <tr><td align="center" colspan="2"><h2>Editar paciente</h2></td></tr>
                         <tr><td><label for="name">Nome</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="name" value="{!! $pacient->name !!}"></td>	
+                                <input name="name" type="text" class="form-control" id="name" placeholder="name" value="{!! $pacient->name !!}"></td>
 	    		<td><label for="cpf">CPF</label>
                             <input name="cpf" type="text" class="form-control" id="cpf" placeholder="cpf" value="{!! $pacient->cpf !!}"></td></tr>
 	    		<tr><td><label for="birth">Data de Nascimento</label>

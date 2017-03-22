@@ -1,6 +1,27 @@
 .primary-color {
   background-color: #1976d2;
 }
+.primary-color-font {
+  color: #1976d2;
+}
+.primary-color-lighten {
+  background-color: #64b5f6;
+}
+.primary-color-darken {
+  background-color: #0d47a1;
+}
+
+.action-color, .action-color:hover {
+  background-color: #e91e63;
+}
+
+.action-color-font {
+  color: #e91e63;
+}
+
+.btn:hover, .btn:focus{
+  background-color: #2979ff;
+}
 
 .card-panel-title {
   margin: 0px 0px 0px 0px !important;
@@ -10,4 +31,13 @@ nav {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1976d2;
+    box-shadow: 0 1px 0 0 #1976d2;
+}
+
+.select-wrapper>ul>li>span{
+  color: #1976d2;
 }

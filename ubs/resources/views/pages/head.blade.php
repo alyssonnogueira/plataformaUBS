@@ -15,8 +15,11 @@
 		'csrfToken' => csrf_token(),
 	]) !!};
 	</script>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	{!! MaterializeCSS::include_full() !!}
 	<link rel="stylesheet" type="text/css" href="{{ URL::to('css/layout.css') }}">
+	<script type="text/javascript" src="{{ URL::to('js/main.js') }}"></script>
 
 	<div class="card-panel flow-text center card-panel-title primary-color">UBS Pelotas</div>

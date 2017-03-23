@@ -6,7 +6,7 @@
   {{ session('erro')}}
 </div>
 @endif
-<h2>Editar médico</h2>
+<span class="flow-text">Editar médico</span>
 <div class="row">
 
   <form action="{{ url('doctor/edit/'.$doctor->person_doctor)}}" method="post" enctype="multipart/form-data">

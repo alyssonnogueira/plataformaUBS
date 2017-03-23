@@ -71,3 +71,20 @@ Route::group(array('prefix' => 'ubs'), function(){
   Route::post('store/', 'UbsWebController@store');
 
 });
+Route::group(array('prefix' => 'ubs'), function(){
+
+  Route::get('/', 'UbsWebController@index');
+  Route::get('show/{id}', 'UbsWebController@show');
+  Route::get('edit/{id}', 'UbsWebController@edit');
+  Route::post('edit/{id}', 'UbsWebController@update');
+  Route::get('delete/{id}', 'UbsWebController@destroy');
+  Route::get('create', 'UbsWebController@create');
+  Route::post('store/', 'UbsWebController@store');
+
+});
+Route::group(array('prefix' => 'audition'), function(){
+  Route::get('show/{id}', 'HomeController@audition');
+});
+Route::group(array('prefix' => 'consultation'), function(){
+  Route::get('show/{id}', 'HomeController@consultation');
+});

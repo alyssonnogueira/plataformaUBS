@@ -2,10 +2,67 @@
 @extends('layouts.inside')
 
 @section('content')
-<body>
-    <div class="section">
-        Médico {{ $showUser->whoIs(Auth::user()->doctor_login) }}, suas opções de administração estão acima, bom trabalho!.
 
-    </div>
-</body>
+<div class="">
+  <p class="center flow-text">
+    Testes anteriores.
+  </p>
+  <table class="bordered highlight centered" >
+    <thead>
+      <tr>
+        <th>Paciente</th>
+        <th>Data</th>
+        <th>Visualizar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tbody>
+        <?php foreach ($auditions as $key => $value): ?>
+          <tr>
+            <td>
+              {!! $value->created_at !!}
+            </td>
+            <td>
+              {!! date_format(new DateTime($value->created_at), 'd/m/Y'); !!}
+            </td>
+            <td>
+              <a href="{!! url('audition/show/'.$value->seqAudition) !!}" class="action-color-font"><i class="material-icons">remove_red_eye</i></a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </tbody>
+  </table>
+</div>
+<div class="">
+  <p class="center flow-text">
+    Consultas anteriores.
+  </p>
+  <table class="bordered highlight centered" >
+    <thead>
+      <tr>
+        <th>Paciente</th>
+        <th>Data</th>
+        <th>Visualizar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <?php foreach ($consultations as $key => $value): ?>
+        <tr>
+          <td>
+            {!! $value->weight !!}
+          </td>
+          <td>
+            {!! date_format(new DateTime($value->created_at), 'd/m/Y'); !!}
+          </td>
+          <td>
+            <a href="{!! url('consultation/show/'.$value->seqConsultation) !!}" class="action-color-font"><i class="material-icons">remove_red_eye</i></a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+</div>
 @endsection

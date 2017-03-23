@@ -24,6 +24,12 @@
     <p class="col s12 m6 flow-text">
       Cognição / Memória: {!! $value->cognition_memory !!}
     </p>
+    <p class="col s12 m6 flow-text">
+      Atividades diárias: {!! $value->daily_activies !!}
+    </p>
+    <p class="col s12 m6 flow-text">
+      Tombo: {!! $value->tumble !!}
+    </p>
   <?php endforeach; ?>
   <div class="center col s12">
     <a href="{!! url('home') !!}" class="btn primary-color-lighten">Voltar</a>

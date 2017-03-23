@@ -33,11 +33,11 @@ class HomeController extends Controller
   */
   public function index()
   {
-    $query_select = "SELECT * FROM consultations";
+    $query_select = "SELECT * FROM consultations INNER JOIN people as person on person.id = consultations.person_pacient";
     $consultations = $this->db->select($query_select);
 
 
-    $query_select = "SELECT * FROM auditions";
+    $query_select = "SELECT * FROM auditions INNER JOIN people as person on person.id = auditions.person_pacient";
     $auditions = $this->db->select($query_select);
 
     return view('home')->with('consultations', $consultations)->with('auditions', $auditions);

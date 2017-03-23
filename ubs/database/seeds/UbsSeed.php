@@ -16,5 +16,10 @@ class UbsSeed extends Seeder
         	'name' => 'ubs da familia',
         	'sync' => true
         	]);
+        App\Ubs::create([
+        	'address_id' => 2,
+        	'name' => 'ubs sem familia',
+        	'sync' => true
+        	]);
     }
 }

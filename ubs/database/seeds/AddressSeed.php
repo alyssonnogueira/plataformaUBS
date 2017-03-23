@@ -13,14 +13,26 @@ class AddressSeed extends Seeder
     {
         App\Address::create([
             'id' => 1,
-        	'country' => 'Brasil', 
-        	'state' => 'RS', 
-        	'city' => 'Pelotas', 
-        	'neighboorhood' => 'Porto', 
-        	'zip' => '96010-100', 
-        	'street' => 'Gomes Carneiro', 
-        	'number' => 1, 
-        	'complement' => 421, 
+        	'country' => 'Brasil',
+        	'state' => 'RS',
+        	'city' => 'Pelotas',
+        	'neighboorhood' => 'Porto',
+        	'zip' => '96010-100',
+        	'street' => 'Gomes Carneiro',
+        	'number' => 1,
+        	'complement' => 421,
+        	'sync' => true
+        ]);
+        App\Address::create([
+            'id' => 2,
+        	'country' => 'Brasil',
+        	'state' => 'RS',
+        	'city' => 'Pelotas',
+        	'neighboorhood' => 'Porto',
+        	'zip' => '96010-100',
+        	'street' => 'Gomes Carneiro',
+        	'number' => 1,
+        	'complement' => 421,
         	'sync' => true
         ]);
     }

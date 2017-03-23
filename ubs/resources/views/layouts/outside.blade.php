@@ -1,14 +1,15 @@
 <html>
-	<title>UBS Pelotas - @yield('title')</title>
-        @include("pages.head")
+<title>
+	UBS Pelotas
+</title>
+@include("pages.head")
 <body>
-    @section('sidebar')
-    @include("pages.menu")
+	@section('sidebar')
+	@include("pages.menu")
 
-
-        @yield('content')
-    @include("pages.footer")
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+<div class="container">
+	@yield('content')
+</div>
+	@include("pages.footer")
 </body>
 </html>

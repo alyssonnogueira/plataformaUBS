@@ -19,13 +19,13 @@ class PacientController extends Controller
      * @return void
      */
     private $db;
-    
+
     public function __construct()
     {
-   
+
         $this->db = DB::connection('mysql');
         $this->middleware('auth');
-    
+
     }
 
     /**
@@ -38,7 +38,7 @@ class PacientController extends Controller
         $pacients = $this->db->select($query_select);
         //$query_select = "SELECT * FROM people";
         //$people = $this->db->select($query_select);
-        
+
         return view('pacient/index-pacient')->with('pacients', $pacients);
     }
 
@@ -63,7 +63,7 @@ class PacientController extends Controller
     public function store(Request $request)
     {
         $mytime = date('Y-m-d H:i:s');
-        
+
         #SAVE ADDRESS
         $query_select = "SELECT id FROM addresses ORDER BY id DESC LIMIT 1";
         $address = $this->db->select($query_select);
@@ -116,7 +116,7 @@ class PacientController extends Controller
     {
         $query_select = "SELECT pacient.*, person.*, address.*, ubs.name AS ubs_name, ubs.id AS ubs_id, login.*  FROM pacients as pacient INNER JOIN people as person INNER JOIN addresses as address INNER JOIN ubses as ubs INNER JOIN logins as login WHERE person.id = pacient.person_pacient AND address.id = person.address_id AND ubs.id = person.ubs_id AND person.id = '$id'";
         $pacient = $this->db->select($query_select);
-        
+
         return view('pacient/edit-pacient')->with('pacient', $pacient[0]);
     }
 
@@ -132,7 +132,7 @@ class PacientController extends Controller
         $mytime = date('Y-m-d H:i:s');
 
         #UPDATE ADDRESS
-        $query_update = "UPDATE addresses SET country='$request->country', state='$request->state', city='$request->city', neighboorhood='$request->neighboorhood', zip='$request->zip', street='$request->street', number='$request->number', complement='$request->complement', sync='0' WHERE id='$request->id'";
+        $query_update = "UPDATE addresses SET country='$request->country', state='$request->state', city='$request->city', neighboorhood='$request->neighboorhood', zip='$request->zip', street='$request->street', number='$request->number', complement='$request->complement', sync='0' WHERE id='$request->address_id'";
         $this->db->update($query_update);
 
         #UPDATE PERSON
@@ -142,7 +142,7 @@ class PacientController extends Controller
         #UPDATE PACIENT
         $query_update = "UPDATE pacients SET armPerimeter='$request->armPerimeter', bedridden='$request->bedridden', bookSenior='$request->bookSenior', depression='$request->depression', dm='$request->dm', has='$request->has', height='$request->height', insanity='$request->insanity', locomotionProblem='$request->locomotionProblem', needCare='$request->needCare', oralHealthRisk='$request->oralHealthRisk', osteoporosis='$request->osteoporosis', skinColor='$request->skinColor', sus='$request->sus', weight='$request->weight', updated_at='$mytime' WHERE person_pacient='$id'";
         $this->db->update($query_update);
-        
+
         $redirectTo = 'pacient/show/'.$id;
         return redirect($redirectTo);
     }
@@ -157,13 +157,13 @@ class PacientController extends Controller
     {
         $query_select = "SELECT pacient.*, person.*, address.*, ubs.name AS ubs_name FROM pacients as pacient INNER JOIN people as person INNER JOIN addresses as address INNER JOIN ubses as ubs WHERE person.id = pacient.person_pacient AND address.id = person.address_id AND ubs.id = person.ubs_id AND person.id = '$id'";
         $pacients = $this->db->select($query_select);
-        
-        foreach ($pacients as $key => $pacient): 
+
+        foreach ($pacients as $key => $pacient):
 
             #DELETE PACIENT
             $query_delete = "DELETE FROM pacients WHERE person_pacient='$id'";
             $this->db->delete($query_delete);
-            
+
             #DELETE PERSON
             $query_delete = "DELETE FROM people WHERE id='$id'";
             $this->db->delete($query_delete);
@@ -171,7 +171,7 @@ class PacientController extends Controller
             #DELETE ADDRESS
             $query_delete = "DELETE FROM addresses WHERE id='$pacient->address_id'";
             $this->db->delete($query_delete);
-        endforeach; 
+        endforeach;
 
         $redirectTo = 'pacient/';
         return redirect($redirectTo);

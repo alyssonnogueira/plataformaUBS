@@ -18,13 +18,13 @@ class DoctorController extends Controller
      * @return void
      */
     private $db;
-    
+
     public function __construct()
     {
-   
+
         $this->db = DB::connection('mysql');
         $this->middleware('auth');
-    
+
     }
 
     /**
@@ -37,7 +37,7 @@ class DoctorController extends Controller
         $doctors = $this->db->select($query_select);
         //$query_select = "SELECT * FROM people";
         //$people = $this->db->select($query_select);
-        
+
 
         return view('doctor/index-doctor')->with('doctors', $doctors);
     }
@@ -70,7 +70,7 @@ class DoctorController extends Controller
     public function store(Request $request){
 
         $mytime = date('Y-m-d H:i:s');
-        
+
         #SAVE ADDRESS
         $query_select = "SELECT id FROM addresses ORDER BY id DESC LIMIT 1";
         $address = $this->db->select($query_select);
@@ -94,7 +94,7 @@ class DoctorController extends Controller
         $query_insert = "INSERT INTO doctors (person_doctor, boss, crm, created_at, updated_at)
         values('$person_id', '$request->boss','$request->crm', '$mytime', '$mytime')";
         $this->db->insert($query_insert);
-        
+
         #SAVE LOGIN
         $query_insert = "INSERT INTO logins (doctor_login, email, password, sync)
         values('$person_id', '$request->email', '$request->password', '0')";
@@ -114,7 +114,7 @@ class DoctorController extends Controller
     {
         $query_select = "SELECT doctor.*, person.*, address.*, ubs.name AS ubs_name, ubs.id AS ubs_id, login.*  FROM doctors as doctor INNER JOIN people as person INNER JOIN addresses as address INNER JOIN ubses as ubs INNER JOIN logins as login WHERE person.id = doctor.person_doctor AND address.id = person.address_id AND ubs.id = person.ubs_id AND person.id = login.doctor_login AND person.id = '$id'";
         $doctor = $this->db->select($query_select);
-        
+
         return view('doctor/edit-doctor')->with('doctor', $doctor[0]);
     }
 
@@ -129,7 +129,7 @@ class DoctorController extends Controller
         $mytime = date('Y-m-d H:i:s');
 
         #UPDATE ADDRESS
-        $query_update = "UPDATE addresses SET country='$request->country', state='$request->state', city='$request->city', neighboorhood='$request->neighboorhood', zip='$request->zip', street='$request->street', number='$request->number', complement='$request->complement', sync='0' WHERE id='$request->id'";
+        $query_update = "UPDATE addresses SET country='$request->country', state='$request->state', city='$request->city', neighboorhood='$request->neighboorhood', zip='$request->zip', street='$request->street', number='$request->number', complement='$request->complement', sync='0' WHERE id='$request->address_id'";
         $this->db->update($query_update);
 
         #UPDATE PERSON
@@ -139,7 +139,7 @@ class DoctorController extends Controller
         #UPDATE DOCTOR
         $query_update = "UPDATE doctors SET boss='$request->boss', crm='$request->crm', updated_at='$mytime' WHERE person_doctor='$id'";
         $this->db->update($query_update);
-        
+
         #UPDATE LOGIN
         $password = bcrypt($request->password);
         $query_update = "UPDATE logins SET email='$request->email', password='$password', sync='0' WHERE doctor_login='$id'";
@@ -148,7 +148,7 @@ class DoctorController extends Controller
         $redirectTo = 'doctor/show/'.$id;
         return redirect($redirectTo);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -160,13 +160,13 @@ class DoctorController extends Controller
 
         $query_select = "SELECT doctor.*, person.*, address.*, ubs.name AS ubs_name FROM doctors as doctor INNER JOIN people as person INNER JOIN addresses as address INNER JOIN ubses as ubs WHERE person.id = doctor.person_doctor AND address.id = person.address_id AND ubs.id = person.ubs_id AND person.id = '$id'";
         $doctors = $this->db->select($query_select);
-        
+
         /* if(!$doctor) {
             return response()->json([
                 'message'   => 'Record not found',
             ], 404);
         }*/
-        foreach ($doctors as $key => $doctor): 
+        foreach ($doctors as $key => $doctor):
 
             #DELETE LOGIN
             $query_delete = "DELETE FROM logins WHERE doctor_login='$id'";
@@ -175,7 +175,7 @@ class DoctorController extends Controller
             #DELETE DOCTOR
             $query_delete = "DELETE FROM doctors WHERE person_doctor='$id'";
             $this->db->delete($query_delete);
-            
+
             #DELETE PERSON
             $query_delete = "DELETE FROM people WHERE id='$id'";
             $this->db->delete($query_delete);
@@ -183,7 +183,7 @@ class DoctorController extends Controller
             #DELETE ADDRESS
             $query_delete = "DELETE FROM addresses WHERE id='$doctor->address_id'";
             $this->db->delete($query_delete);
-        endforeach; 
+        endforeach;
 
         $redirectTo = 'doctor/';
         return redirect($redirectTo);

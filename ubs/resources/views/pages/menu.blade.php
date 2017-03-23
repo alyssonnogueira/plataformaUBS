@@ -1,12 +1,11 @@
 @inject('showUser', 'App\Http\Controllers\Auth\LoginController')
 <nav class="primary-color">
   <div class="nav-wrapper">
-    @if(Auth::check()) 
+    @if(Auth::check())
     <ul class="left">
       <li><a href="{{ url('/home') }}">Home</a></li>
       <li><a href="{{ url('doctor')}}">Médicos</a></li>
       <li><a href="{{url('pacient')}}">Pacientes</a></li>
-      <li><a href="{{ url('reports')}}">Relatórios</a></li>
       <li><a href="{{ url('ubs')}}">Ubs</a></li>
     </ul>
     @endif

@@ -12,7 +12,7 @@
 }
 
 .action-color, .action-color:hover, action-color:focus {
-  background-color: #e91e63;
+  background-color: #e91e63 !important;
 }
 
 .action-color-font {
@@ -27,6 +27,18 @@
   margin: 0px 0px 0px 0px !important;
 }
 
+.input-field .prefix.active {
+  color: #1976d2;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #1976d2;
+}
+
+.search-container {
+  margin-top: 25vh !important;
+}
+
 nav {
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -34,8 +46,8 @@ nav {
 }
 
 input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #1976d2;
-    box-shadow: 0 1px 0 0 #1976d2;
+  border-bottom: 1px solid #1976d2;
+  box-shadow: 0 1px 0 0 #1976d2;
 }
 
 .select-wrapper>ul>li>span{

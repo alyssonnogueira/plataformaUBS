@@ -11,12 +11,12 @@ class UbsController extends Controller
 {
 
 	private $db;
-	
+
 	public function __construct()
     {
-   
+
         $this->db = DB::connection('mysql');
-    
+
     }
 
     public function index()
@@ -32,7 +32,7 @@ class UbsController extends Controller
         #$ubs = Ubs::find($id);
         $query_select = "SELECT * FROM ubses WHERE id = '$id'";
 		$ubs = $this->db->select($query_select);
-        
+
         if(!$ubs) {
             return response()->json([
                 'message'   => 'Record not found',
@@ -57,34 +57,29 @@ class UbsController extends Controller
 
     public function update(Request $request, $id)
     {
-        #$ubs = Ubs::find($id);
+    		$query_select = "SELECT * FROM ubses WHERE id = '$id'";
+				$ubs_verify = $this->db->select($query_select);
 
-        $query_select = "SELECT * FROM ubses WHERE id = '$id'";
-		$ubs_verify = $this->db->select($query_select);
-        
         if(!$ubs_verify) {
             return response()->json([
                 'message'   => 'Record not found',
             ], 404);
         }
 
-		$ubs = new Address();
+				$ubs = new Address();
         $ubs->fill($request->all());
 
         $query_update = "UPDATE ubses SET name='$ubs->name', address_id='$ubs->address_id', sync='$ubs->sync' WHERE id='$id'";
         $this->db->update($query_update);
-        #$ubs->save();
 
         return response()->json($ubs);
     }
 
      public function destroy($id)
     {
-        #$ubs = Ubs::find($id);
-
 		$query_select = "SELECT * FROM ubses WHERE id = '$id'";
 		$ubs = $this->db->select($query_select);
-        
+
         if(!$ubs) {
             return response()->json([
                 'message'   => 'Record not found',

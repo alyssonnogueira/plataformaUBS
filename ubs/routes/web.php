@@ -12,7 +12,7 @@
 */
 
 Route::group(array('prefix' => 'api'), function(){
- 
+
   Route::resource('addresses', 'AddressesController');
   Route::resource('auditions', 'AuditionsController');
   Route::resource('consultations', 'ConsultationsController');
@@ -39,7 +39,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::group(array('prefix' => 'doctor'), function(){
- 
+
   Route::get('/', 'DoctorController@index');
   Route::get('show/{id}', 'DoctorController@show');
   Route::get('edit/{id}', 'DoctorController@edit');
@@ -50,7 +50,7 @@ Route::group(array('prefix' => 'doctor'), function(){
 });
 
 Route::group(array('prefix' => 'pacient'), function(){
- 
+
   Route::get('/', 'PacientController@index');
   Route::get('show/{id}', 'PacientController@show');
   Route::get('edit/{id}', 'PacientController@edit');
@@ -58,5 +58,16 @@ Route::group(array('prefix' => 'pacient'), function(){
   Route::get('delete/{id}', 'PacientController@delete');
   Route::get('create', 'PacientController@create');
   Route::post('store/', 'PacientController@store');
+
+});
+Route::group(array('prefix' => 'ubs'), function(){
+
+  Route::get('/', 'UbsWebController@index');
+  Route::get('show/{id}', 'UbsWebController@show');
+  Route::get('edit/{id}', 'UbsWebController@edit');
+  Route::post('edit/{id}', 'UbsWebController@update');
+  Route::get('delete/{id}', 'UbsWebController@destroy');
+  Route::get('create', 'UbsWebController@create');
+  Route::post('store/', 'UbsWebController@store');
 
 });

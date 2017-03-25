@@ -46,8 +46,9 @@ class LoginsController extends Controller
     {
         $login = new Login();
         $login->fill($request->all());
+        $crypt = bcrypt($login->password);
         $query_insert = "INSERT INTO logins (doctor_login, email, password, sync)
-        values('$login->doctor_login', '$login->email', '$login->password', '$login->sync')";
+        values('$login->doctor_login', '$login->email', '$crypt', '$login->sync')";
         $this->db->insert($query_insert);
         //$login->save();
 

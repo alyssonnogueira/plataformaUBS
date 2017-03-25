@@ -21,7 +21,7 @@
         <?php foreach ($auditions as $key => $value): ?>
           <tr>
             <td>
-              {!! $value->created_at !!}
+              {!! $value->name !!}
             </td>
             <td>
               {!! date_format(new DateTime($value->created_at), 'd/m/Y'); !!}
